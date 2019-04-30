@@ -1,0 +1,95 @@
+Create a query for books (title, author, isbn) DONE
+			query{
+			  book{
+				title
+				author
+				isbn
+			  }
+			}
+
+Should be able to query for book based on  DONE
+isbn:
+			query {  
+					  isbn(isbn:"ISBN 978-9930943106") {
+						title
+						isbn
+						author
+					   
+					  }
+					}
+					
+					
+					
+author name equals:
+			query {  
+		  authorName (authorName:"J. K. Rowling") {
+			title
+			isbn
+			author
+		   
+		  }
+		}
+		
+		
+author name contains
+		query {  
+			  authorNameContains (authorName:"Enid") {
+				title
+				isbn
+				author
+			   
+			  }
+			}
+			
+			
+	
+Insert a book wit a specified isbn
+		mutation($addbook:bookInput!){
+		  addBook(addBook:$addbook){
+			title
+			author
+			isbn
+		  }
+		}
+		{
+		  "addbook":{
+			"title":"HarryPotter3",
+			"author":"J.K Rowling",
+			"isbn":"ISBN 978-9928400529"
+			
+		  }
+		}
+
+Update a book with a specified isbn
+		mutation($updatebook:bookInput!){
+		  updateBook(updateBook:$updatebook){
+			title
+			author
+			isbn
+		  }
+		}	
+		{
+		  "updatebook":{
+			"title":"HarryPotter3",
+			"author":"J.K Rowling",
+			"isbn":"ISBN 978-9928400529"
+			
+		  }
+		}
+Delete book
+		mutation($deletebook:bookInput!){
+				  deleteBook(deleteBook:$deletebook){
+						title
+						author
+						isbn
+					  }
+					}
+		{
+		  "deletebook":{
+			"title":"HarryPotter3",
+			"author":"J.K Rowling",
+			"isbn":"ISBN"
+			
+		  }
+		}
+regular expression not working in graphql
